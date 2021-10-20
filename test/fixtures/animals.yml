@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  endangered: false
+  migratory: false
+  habitat: 1
+
+two:
+  name: MyString
+  endangered: false
+  migratory: false
+  habitat: 1
