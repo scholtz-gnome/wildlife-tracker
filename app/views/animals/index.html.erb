@@ -1,2 +1,12 @@
 <h1>Animals</h1>
-<p>View all animals here</p>
+
+<ul>
+  <% @animals.each do |animal| %>
+    <li>
+      <div>
+        <h3><a href="/animals/<%=animal.id%>"><%= animal.name %></a></h3>
+      </div>
+    </li>
+  <% end %>
+</ul>
+
