@@ -2,8 +2,11 @@
   <%= @animal.name %>
 </h1>
 
-<p>Habitat: <%= @animal.habitat %></p>
-<p>Migratory: <%= @animal.migratory %></p>
-<p>Endangered: <%= @animal.endangered %></p>
+<p>Habitat: <%= @animal.habitat %>
+</p>
+<p>Migratory: <%= @animal.migratory %>
+</p>
+<p>Endangered: <%= @animal.endangered %>
+</p>
 
-<a href="/animals">back</a>
+<%= link_to "back", animals_path%> | <%= link_to "edit", edit_animal_path(@animal) %>

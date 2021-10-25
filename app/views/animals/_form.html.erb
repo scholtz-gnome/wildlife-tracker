@@ -1,0 +1,37 @@
+<%= form_with model: animal do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    <% animal.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :endangered %>
+    <%= form.check_box :endangered %>
+    <% animal.errors.full_messages_for(:endangered).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :migratory %>
+    <%= form.check_box :migratory %>
+    <% animal.errors.full_messages_for(:migratory).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  
+  <div>
+    <%= form.label :habitat %>
+    <%= form.select :habitat, ['land', 'air', 'water'], selected: 'land' %>
+    <% animal.errors.full_messages_for(:habitat).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

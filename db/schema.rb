@@ -14,9 +14,9 @@ ActiveRecord::Schema.define(version: 2021_10_20_125019) do
 
   create_table "animals", force: :cascade do |t|
     t.string "name"
-    t.boolean "endangered"
-    t.boolean "migratory"
-    t.integer "habitat"
+    t.boolean "endangered", default: false
+    t.boolean "migratory", default: false
+    t.integer "habitat", default: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

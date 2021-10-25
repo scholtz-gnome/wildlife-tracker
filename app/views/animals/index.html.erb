@@ -4,9 +4,12 @@
   <% @animals.each do |animal| %>
     <li>
       <div>
-        <h3><a href="/animals/<%=animal.id%>"><%= animal.name %></a></h3>
+        <h3>
+          <%= link_to animal.name, animal %>
+        </h3>
       </div>
     </li>
   <% end %>
 </ul>
 
+<%= link_to 'New Animal', new_animal_path %>
