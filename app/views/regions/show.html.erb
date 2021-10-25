@@ -1,0 +1,12 @@
+<h1>
+  <%= @region.name %>
+</h1>
+
+<h3>
+  Area: <%= @region.area %>km2
+</h3>
+
+<%= link_to "back", regions_path%> |
+<%= link_to "edit", edit_region_path(@region) %> |
+<%= link_to "delete", region_path(@region), method: :delete, data: { confirm: "Are you sure?" } %>
+

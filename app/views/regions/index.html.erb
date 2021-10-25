@@ -1,0 +1,21 @@
+<h1>Regions</h1>
+
+<nav>
+  <h3>
+    <%= link_to 'Animals', animals_path %>
+  </h3>
+</nav>
+
+<ul>
+  <% @regions.each do |region| %>
+    <li>
+      <div>
+        <h3>
+          <%= link_to region.name, region %>
+        </h3>
+      </div>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Create Region", new_region_path %>
