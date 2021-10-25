@@ -9,4 +9,6 @@
 <p>Endangered: <%= @animal.endangered %>
 </p>
 
-<%= link_to "back", animals_path%> | <%= link_to "edit", edit_animal_path(@animal) %>
+<%= link_to "back", animals_path%> |
+<%= link_to "edit", edit_animal_path(@animal) %> |
+<%= link_to "Destroy", animal_path(@animal), method: :delete, data: { confirm: "Are you sure?" } %>
