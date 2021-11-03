@@ -1,6 +1,6 @@
 <h1>Create a sighting</h1>
 
-<%= form_with model: @sighting, url: "/animals/#{@sighting.animal_id}/sightings" do |form| %>
+<%= form_with model: @sighting, url: animal_sightings_url(@sighting.animal_id) do |form| %>
   <div>
     <%= form.label(:animals, 'What animal did you see?') %><br/>
     <% options = options_from_collection_for_select(@animals, 'id', 'name', @sighting.animal_id) %>
@@ -22,6 +22,10 @@
   <div>
     <%= form.label(:latitude) %><br/>
     <%= form.number_field(:latitude, step: 0.00001) %>
+
+    <% @sighting.errors.full_messages_for(:latitude).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </div>
 
   <div>

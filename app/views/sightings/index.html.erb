@@ -14,10 +14,11 @@
       <li>Longitude <%= sighting.longitude %></li>
       <li>Latitude <%= sighting.latitude %></li>
     </ul>
+    <p><%= sighting.region.name %></p>
   </div>
 
 <% end %>
 
 <hr>
 <%= link_to 'back', animals_path %> |
-<%= link_to "create sighting for #{@animal.name}", new_animal_sighting_url(@animal) %>
+<%= link_to "create sighting of #{@animal.name}", new_animal_sighting_url(@animal) %>

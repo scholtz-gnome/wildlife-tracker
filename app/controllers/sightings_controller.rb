@@ -16,9 +16,14 @@ class SightingsController < ApplicationController
 
   def create
     @animal = Animal.find(params[:animal_id])
-    @sighting = @animal.sightings.create(sighting_params)
+    puts '---------------------------------------------------'
+    puts @animal.sightings.create(sighting_params)
 
-    redirect_to animal_path(@animal)
+    if @animal.sightings.create(sighting_params)
+      redirect_to animal_sightings_url(@animal)
+    else
+      redirect_to new_animal_sighting_url(@animal)
+    end
   end
 
   private

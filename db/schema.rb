@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 2021_10_28_092709) do
     t.integer "animal_id", null: false
     t.integer "region_id", null: false
     t.date "date"
-    t.float "latitude"
-    t.float "longitude"
+    t.decimal "latitude", precision: 10, scale: 6
+    t.decimal "longitude", precision: 10, scale: 6
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["animal_id"], name: "index_sightings_on_animal_id"
