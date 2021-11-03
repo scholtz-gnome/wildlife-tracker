@@ -13,6 +13,8 @@
         <h3>
           <%= link_to animal.name, animal %>
         </h3>
+        <%= link_to "#{animal.name} sightings", animal_sightings_url(animal) %>
+        <%= link_to 'Sightings', animal_sightings_url(animal) %>
       </div>
     </li>
   <% end %>
