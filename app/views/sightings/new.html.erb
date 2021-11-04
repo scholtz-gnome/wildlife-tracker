@@ -1,43 +1,42 @@
 <h1>Create a sighting</h1>
 
 <%= form_with model: @sighting, url: animal_sightings_url(@sighting.animal_id) do |form| %>
-  <div>
-    <%= form.label(:animals, 'What animal did you see?') %><br/>
-    <% options = options_from_collection_for_select(@animals, 'id', 'name', @sighting.animal_id) %>
-    <%= form.select :animal_id, options %>
-  </div>
 
-  <div>
-    <%= form.label(:regions, 'In what region was the animal sighted?') %><br/>
-    <% options = options_from_collection_for_select(@regions, 'id', 'name') %>
-    <%= form.select :region_id, options %>
-  </div>
+<div>
+  <%= form.label(:animals, 'What animal did you see?') %><br />
+  <% options = options_from_collection_for_select(@animals, 'id', 'name',
+  @sighting.animal_id) %> <%= form.select :animal_id, options %>
+</div>
 
-  <div>
-    <%= form.label(:date, 'When did you see it?') %><br/>
-    <%= form.date_field(:date, value: Date.today.to_s()) %>
-  </div>
+<div>
+  <%= form.label(:regions, 'In what region was the animal sighted?') %><br />
+  <% options = options_from_collection_for_select(@regions, 'id', 'name') %> <%=
+  form.select :region_id, options %>
+</div>
 
-  <p>Provide GPS coordinates for the sighting</p>
-  <div>
-    <%= form.label(:latitude) %><br/>
-    <%= form.number_field(:latitude, step: 0.00001) %>
+<div>
+  <%= form.label(:date, 'When did you see it?') %><br />
+  <%= form.date_field(:date, value: Date.today.to_s()) %>
+</div>
 
-    <% @sighting.errors.full_messages_for(:latitude).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
+<p>Provide GPS coordinates for the sighting</p>
+<div>
+  <%= form.label(:latitude) %><br />
+  <%= form.number_field(:latitude, step: 0.00001) %> <%
+  @sighting.errors.full_messages_for(:latitude).each do |message| %>
+  
+  <div><%= message %></div>
+  <% end %>
+</div>
 
-  <div>
-    <%= form.label(:longitude) %><br/>
-    <%= form.number_field(:longitude, step: 0.00001) %>
-  </div>
+<div>
+  <%= form.label(:longitude) %><br />
+  <%= form.number_field(:longitude, step: 0.00001) %>
+</div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+<div><%= form.submit %></div>
 <% end %>
 
-<hr>
+<hr />
 
 <%= link_to 'back', animal_sightings_url(@sighting.animal_id) %>
