@@ -12,9 +12,6 @@ class SightingsController < ApplicationController
 
   def new
     @sighting = @animal.sightings.build
-
-    @animals = Animal.all
-
     @regions = Region.all
   end
 
@@ -45,7 +42,7 @@ class SightingsController < ApplicationController
   private
 
   def sighting_params
-    params.require(:sighting).permit(:animal_id, :region_id, :date, :latitude, :longitude)
+    params.require(:sighting).permit(:region_id, :date, :latitude, :longitude)
   end
 
   def find_animal
