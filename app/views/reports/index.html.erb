@@ -1,0 +1,15 @@
+<h1>
+  Reports
+</h1>
+
+<ol>
+  <% @reports.each do |report| %>
+    <li>
+      <p>
+        <%= link_to "Between #{report.from} and #{report.to}", "/reports/#{report.id}/sightings" %>
+      </p>
+    </li>
+  <% end %>
+</ol>
+
+<%= link_to 'Create Report', "/reports/new" %>

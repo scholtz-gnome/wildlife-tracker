@@ -1,0 +1,23 @@
+<%= form_with model: @report do |form| %>
+  <div>
+    <%= form.label :from %>
+    <%= form.select :from, options_from_collection_for_select(@sightings, :date, :date) %>
+
+    <% @report.errors.full_messages_for(:from).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :to %>
+    <%= form.select :to, options_from_collection_for_select(@sightings, :date, :date) %>
+
+    <% @report.errors.full_messages_for(:to).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

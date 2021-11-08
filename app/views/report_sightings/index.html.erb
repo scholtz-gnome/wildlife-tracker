@@ -1,0 +1,13 @@
+<h1>
+  Sightings Report
+</h1>
+
+<ol>
+  <% @sightings.each do |sighting| %>
+    <li>
+      <p>
+        <%= sighting.date %>
+      </p>
+    </li>
+  <% end %>
+</ol>
