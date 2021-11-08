@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   root 'animals#index'
 
-  resources :animals do
-    resources :sightings
-  end
-  resources :regions
+  resources(:animals, :regions, :sightings)
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # Animal Sightings Endpoints
+  get '/animals/:animal_id/sightings', to: 'animal_sightings#index'
+  get '/animals/:animal_id/sightings/new', to: 'animal_sightings#new'
+  post '/animals/:animal_id/sightings', to: 'animal_sightings#create'
 end

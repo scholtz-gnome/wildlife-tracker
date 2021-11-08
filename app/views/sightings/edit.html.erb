@@ -1,0 +1,5 @@
+<h1>Edit Sighting</h1>
+
+<%= render "form", locals: { sighting: @sighting, regions: @regions, animals: @animals } %>
+
+<%= link_to "back", "/sightings/#{@sighting.id}" %>

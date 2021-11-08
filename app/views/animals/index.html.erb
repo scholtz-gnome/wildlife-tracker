@@ -4,19 +4,19 @@
   <h3>
     <%= link_to 'Regions', regions_path %>
   </h3>
+  <h3>
+    <%= link_to 'Sightings', "/sightings" %>
+  </h3>
 </nav>
 
-<ul>
+<ol>
   <% @animals.each do |animal| %>
     <li>
-      <div>
-        <h3>
-          <%= link_to animal.name, animal %>
-        </h3>
-        <%= link_to "#{animal.name} sightings", animal_sightings_url(animal) %>
-      </div>
+      <h3>
+        <%= link_to animal.name, animal %>
+      </h3>
     </li>
   <% end %>
-</ul>
+</ol>
 
 <%= link_to 'New Animal', new_animal_path %>

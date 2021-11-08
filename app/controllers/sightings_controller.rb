@@ -1,33 +1,23 @@
 class SightingsController < ApplicationController
-  before_action :find_animal
-  before_action :set_sighting, only: %i[show edit update destroy]
+  before_action(:find_sighting_by_id, only: %i[show edit update destroy])
 
   def index
-    @sightings = @animal.sightings
+    @sightings = Sighting.all
   end
 
   def show
-    @sighting = Sighting.find(params[:id])
+    @animal = Animal.find(@sighting.animal_id)
+    @region = Region.find(@sighting.region_id)
   end
 
-  def new
-    @sighting = @animal.sightings.build
+  def edit
+    @animals = Animal.all
     @regions = Region.all
-  end
-
-  def create
-    @sighting = @animal.sightings.build(sighting_params)
-
-    if @sighting.save
-      redirect_to animal_sightings_path(@animal)
-    else
-      render :new
-    end
   end
 
   def update
     if @sighting.update(sighting_params)
-      redirect_to animal_sightings_path(@animal)
+      redirect_to "/sightings/#{@sighting.id}"
     else
       render :edit
     end
@@ -36,20 +26,16 @@ class SightingsController < ApplicationController
   def destroy
     @sighting.destroy
 
-    redirect_to animal_sightings_path(@animal)
+    redirect_to '/sightings'
   end
 
   private
 
   def sighting_params
-    params.require(:sighting).permit(:region_id, :date, :latitude, :longitude)
+    params.require(:sighting).permit(:region_id, :animal_id, :date, :latitude, :longitude)
   end
 
-  def find_animal
-    @animal = Animal.find(params[:animal_id])
-  end
-
-  def set_sighting
-    @sighting = @shark.sightings.find(params[:id])
+  def find_sighting_by_id
+    @sighting = Sighting.find(params[:id])
   end
 end

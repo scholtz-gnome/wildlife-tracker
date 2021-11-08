@@ -1,0 +1,12 @@
+<h1>Sighting of <%= @animal.name %></h1>
+
+<h3><%= @sighting.date %></h3>
+<h3>Region</h3>
+<p><%= @region.name %></p>
+
+<h3>Coordinates</h3>
+<p><%= "#{@sighting.latitude}, #{@sighting.longitude}" %></p>
+
+<%= link_to 'back', "/sightings" %> |
+<%= link_to 'edit', "/sightings/#{@sighting.id}/edit" %> |
+<%= link_to 'delete', "/sightings/#{@sighting.id}", method: :delete, data: { confirm: "Are you sure?" } %> 

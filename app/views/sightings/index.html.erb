@@ -1,26 +1,22 @@
-<h1><%= @animal.name %> Sightings</h1>
+<h1>
+  Sightings
+</h1>
 
-<p>
-  A <%= @animal.name %> has been sighted <%= @sightings.length === 1 ? 'once' : "#{@sightings.length} times" %>
-</p>
+<nav>
+  <h3>
+    <%= link_to 'Regions', regions_path %>
+  </h3>
+  <h3>
+    <%= link_to 'Animals', animals_path %>
+  </h3>
+</nav>
 
-<% @sightings.each do |sighting| %>
-
-  <div>
-    <hr/>
-    <h3><%= sighting.date %></h3>
-    <h4>Coordinates</h4>
-    <ul>
-      <li>Longitude <%= sighting.longitude %></li>
-      <li>Latitude <%= sighting.latitude %></li>
-    </ul>
-    <p><%= sighting.region.name %></p>
-  </div>
-
-<!-- add other CRUD stuff here, like delete and update -->
-
-<% end %>
-
-<hr>
-<%= link_to 'back', animals_path %> |
-<%= link_to "create sighting of #{@animal.name}", new_animal_sighting_url(@animal) %>
+<ol>
+  <% @sightings.each do |sighting| %>
+    <li>
+      <h3>
+        <%= link_to sighting.date, "/sightings/#{sighting.id}" %>
+      </h3>
+    </li>
+  <% end %>
+</ol>

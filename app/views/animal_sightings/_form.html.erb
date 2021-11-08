@@ -1,4 +1,4 @@
-<%= form_with(model: @sighting, url: "/sightings/#{@sighting.id}") do |f| %>
+<%= form_with(model: [@animal, @sighting], url: "/animals/#{@animal.id}/sightings") do |f| %>
   <% if @sighting.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@sighting.errors.count, "error") %> prohibited this sighting from being saved:</h2>
@@ -12,13 +12,8 @@
   <% end %>
 
   <div>
-    <%= f.label(:animal, 'What animal was sighted?') %><br />
-    <%= f.select :animal_id, options_from_collection_for_select(@animals, :id, :name) %>
-  </div>
-
-  <div>
     <%= f.label(:region, 'In what region was the animal sighted?') %><br />
-    <%= f.select :region_id, options_from_collection_for_select(@regions, :id, :name) %>
+    <%= f.select :region_id, options_from_collection_for_select(Region.all, :id, :name) %>
   </div>
 
   <div>
