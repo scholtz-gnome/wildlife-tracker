@@ -2,4 +2,4 @@
 
 <%= render "form", locals: { sighting: @sighting, regions: @regions, animals: @animals } %>
 
-<%= link_to "back", "/sightings/#{@sighting.id}" %>
+<%= link_to "back", sighting_path(@sighting) %>

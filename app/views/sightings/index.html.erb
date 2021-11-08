@@ -15,7 +15,7 @@
   <% @sightings.each do |sighting| %>
     <li>
       <h3>
-        <%= link_to sighting.date, "/sightings/#{sighting.id}" %>
+        <%= link_to sighting.date, sighting_path(sighting) %>
       </h3>
     </li>
   <% end %>

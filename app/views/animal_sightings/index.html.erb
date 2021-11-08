@@ -17,7 +17,7 @@
 
     <p><%= sighting.region.name %></p>
 
-    <%= link_to 'view', "/sightings/#{sighting.id}" %>
+    <%= link_to 'view', sighting_path(sighting) %>
   </div>
 <% end %>
 

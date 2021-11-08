@@ -17,7 +17,7 @@ class SightingsController < ApplicationController
 
   def update
     if @sighting.update(sighting_params)
-      redirect_to "/sightings/#{@sighting.id}"
+      redirect_to sighting_path(@sighting)
     else
       render :edit
     end
