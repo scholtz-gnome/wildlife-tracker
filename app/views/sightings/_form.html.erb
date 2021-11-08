@@ -23,12 +23,14 @@
 
   <p>Provide GPS coordinates for the sighting</p>
   <div>
-    <%= f.label(:latitude) %><br />
+    <%= f.label(:latitude) %>
+    (absolute value cannot exceed 90)<br />
     <%= f.number_field(:latitude, step: 0.00001) %> 
   </div>
 
   <div>
-    <%= f.label(:longitude) %><br />
+    <%= f.label(:longitude) %>
+    (absolute value cannot exceed 180)<br />
     <%= f.number_field(:longitude, step: 0.00001) %>
   </div>
 
