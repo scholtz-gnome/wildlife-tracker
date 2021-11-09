@@ -41,9 +41,10 @@ class AnimalsController < ApplicationController
 
     redirect_to root_path
   end
-  
+
   private
-    def animal_params
-      params.require(:animal).permit(:name, :migratory, :endangered, :habitat)
-    end
+
+  def animal_params
+    params.require(:animal).permit(:name, :migratory, :endangered, :habitat)
+  end
 end

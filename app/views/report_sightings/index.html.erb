@@ -1,12 +1,14 @@
 <h1>
   Sightings Report
 </h1>
-
+<h3>
+  Viewing all sightings between <%= @report.from %> and <%= @report.to %>
+</h3>
 <ol>
   <% @sightings.each do |sighting| %>
     <li>
       <p>
-        <%= sighting.date %>
+        <%= link_to "#{Animal.find(sighting.animal_id).name} | #{sighting.date}", sighting_path(sighting) %>
       </p>
     </li>
   <% end %>

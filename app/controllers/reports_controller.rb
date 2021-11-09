@@ -5,7 +5,7 @@ class ReportsController < ApplicationController
 
   def new
     @report = Report.new
-    @sightings = Sighting.all.reorder('created_at DESC')
+    @sightings = Sighting.all.reorder('date ASC')
   end
 
   def create
